@@ -13,7 +13,8 @@ RUN apk update \
     && apk del tzdata \
     && rm -rf /var/cache/apk/*
 
-RUN echo "upstream php-upstream { server php-fpm:9000; }" > /etc/nginx/conf.d/upstream.conf \
+RUN mkdir -p /nginx_log \
+    && echo "upstream php-upstream { server php-fpm:9000; }" > /etc/nginx/conf.d/upstream.conf \
     && echo "fastcgi_param  APP_ENV            production;" >> /etc/nginx/fastcgi.conf \
     && rm /etc/nginx/conf.d/default.conf
 
