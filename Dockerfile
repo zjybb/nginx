@@ -10,7 +10,6 @@ RUN apk update \
     && apk add --no-cache openssl curl tree tzdata \
     && adduser -D -H -u 1000 -s /bin/bash www-data -G www-data \
     && cp /usr/share/zoneinfo/${TZ} /etc/localtime \
-    && apk del tzdata \
     && rm -rf /var/cache/apk/*
 
 RUN mkdir -p /nginx_log \
