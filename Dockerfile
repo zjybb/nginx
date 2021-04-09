@@ -10,7 +10,7 @@ RUN apk update && \
     adduser -D -H -u 1000 -s /bin/bash www-data -G www-data &&\
     cp /usr/share/zoneinfo/${TZ} /etc/localtime 
 
-RUN mkdir -p echo "fastcgi_param  APP_ENV            production;" >> /etc/nginx/fastcgi.conf && \
+RUN echo "fastcgi_param  APP_ENV            production;" >> /etc/nginx/fastcgi.conf && \
     echo "upstream php-upstream { server php-fpm:9000; }" > /etc/nginx/conf.d/upstream.conf && \
     rm /etc/nginx/conf.d/default.conf
 
