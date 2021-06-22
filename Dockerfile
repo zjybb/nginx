@@ -14,7 +14,7 @@ RUN echo "fastcgi_param  APP_ENV            production;" >> /etc/nginx/fastcgi.c
     echo "upstream php-upstream { server php-fpm:9000; }" > /etc/nginx/conf.d/upstream.conf && \
     rm /etc/nginx/conf.d/default.conf
 
-COPY ./defalut_server.conf /etc/nginx/
+COPY ./default_server.conf /etc/nginx/
 COPY ./nginx.conf /etc/nginx/
 COPY ./config /etc/nginx/rewrite
 
